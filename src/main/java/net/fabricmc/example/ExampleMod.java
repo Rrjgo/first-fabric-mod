@@ -3,10 +3,10 @@ package net.fabricmc.example;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -19,13 +19,14 @@ public class ExampleMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final FabricItem FABRIC_ITEM = new FabricItem(new FabricItemSettings());
-
+	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
 			new Identifier("tutorial", "fabric"))
 			.icon(() -> new ItemStack(FABRIC_ITEM))
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FABRIC_ITEM));
+				stacks.add(new ItemStack(EXAMPLE_BLOCK));
 			})
 			.build();
 
@@ -39,5 +40,9 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 
 		Registry.register(Registry.ITEM, new Identifier("tutorial", "fabric_item"),FABRIC_ITEM);
+
+		Registry.register(Registry.BLOCK, new Identifier("tutorial", "example_block"), EXAMPLE_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new Item.Settings()));
+
 	}
 }
