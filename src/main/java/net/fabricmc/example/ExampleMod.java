@@ -19,7 +19,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final FabricItem FABRIC_ITEM = new FabricItem(new FabricItemSettings());
-	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f));
+	public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
 			new Identifier("tutorial", "fabric"))
@@ -27,6 +27,7 @@ public class ExampleMod implements ModInitializer {
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FABRIC_ITEM));
 				stacks.add(new ItemStack(EXAMPLE_BLOCK));
+				stacks.add(new ItemStack(Items.ACACIA_BOAT));
 			})
 			.build();
 
