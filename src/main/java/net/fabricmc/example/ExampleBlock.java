@@ -18,9 +18,15 @@ public class ExampleBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+
+
         if (!world.isClient) {
             player.sendMessage(Text.of("Hello, world!"), false);
+            player.sendMessage(Text.of(world.asString()), false);
+            player.sendMessage(Text.of(player.toString()), false);
+            player.sendMessage(Text.of(hand.toString()), false);
         }
+
 
         return ActionResult.SUCCESS;
     }

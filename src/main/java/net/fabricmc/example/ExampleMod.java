@@ -19,6 +19,7 @@ public class ExampleMod implements ModInitializer {
 
 	public static final FabricItem FABRIC_ITEM = new FabricItem(new FabricItemSettings());
 	public static final ExampleBlock EXAMPLE_BLOCK = new ExampleBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
+	public static final JukeboxDrawerBlock JUKEBOX_DRAWER_BLOCK = new JukeboxDrawerBlock(FabricBlockSettings.of(Material.METAL).hardness(1.0f));
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
 			new Identifier("tutorial", "fabric"))
@@ -26,7 +27,7 @@ public class ExampleMod implements ModInitializer {
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FABRIC_ITEM));
 				stacks.add(new ItemStack(EXAMPLE_BLOCK));
-				stacks.add(new ItemStack(Items.ACACIA_BOAT));
+				stacks.add(new ItemStack(JUKEBOX_DRAWER_BLOCK));
 			})
 			.build();
 
@@ -43,6 +44,9 @@ public class ExampleMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("tutorial", "example_block"), EXAMPLE_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new Item.Settings()));
+
+		Registry.register(Registry.BLOCK, new Identifier("tutorial", "jukebox_drawer"), JUKEBOX_DRAWER_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("tutorial", "jukebox_drawer"), new BlockItem(JUKEBOX_DRAWER_BLOCK, new Item.Settings()));
 
 	}
 }
