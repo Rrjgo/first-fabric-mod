@@ -4,7 +4,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Material;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -18,8 +20,16 @@ public class ExampleMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final FabricItem FABRIC_ITEM = new FabricItem(new FabricItemSettings());
+
 	public static final ExampleBlock EXAMPLE_BLOCK = new ExampleBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
 	public static final JukeboxDrawerBlock JUKEBOX_DRAWER_BLOCK = new JukeboxDrawerBlock(FabricBlockSettings.of(Material.METAL).hardness(1.0f));
+
+	public static final BlockEntityType<JukeboxDrawerBlockEntity> JUKEBOX_DRAWER_BLOCK_ENTITY = Registry.register(
+			Registry.BLOCK_ENTITY_TYPE,
+			new Identifier("tutorial", "jukebox_drawer_block_entity"),
+			FabricBlockEntityTypeBuilder.create(JukeboxDrawerBlockEntity::new, JUKEBOX_DRAWER_BLOCK).build()
+	);
+
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
 			new Identifier("tutorial", "fabric"))
