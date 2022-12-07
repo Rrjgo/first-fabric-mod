@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tutorial:example_block"
+    "tutorial:example_block",
+    "tutorial:jukebox_drawer"
   ]
 }
