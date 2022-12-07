@@ -5,9 +5,11 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -29,6 +31,12 @@ public class ExampleMod implements ModInitializer {
 			new Identifier("tutorial", "jukebox_drawer_block_entity"),
 			FabricBlockEntityTypeBuilder.create(JukeboxDrawerBlockEntity::new, JUKEBOX_DRAWER_BLOCK).build()
 	);
+
+	public static final ScreenHandlerType<JukeboxDrawerScreenHandler> JUKEBOX_DRAWER_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(
+			new Identifier("tutorial", "jukebox_drawer_block_entity"),
+			JukeboxDrawerScreenHandler::new
+	);
+
 
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
