@@ -26,7 +26,7 @@ public class BocchiEntityModel extends EntityModel<BocchiEntity> {
                 .uv(37, 11).cuboid(-10.0F, -10.0F, -8.5F, 3.0F, 1.0F, 1.0F)
                 .uv(37, 6).cuboid(-8.0F, -9.0F, -9.5F, 2.0F, 2.0F, 2.0F)
                 .uv(37, 0).cuboid(-7.0F, -11.0F, -9.5F, 2.0F, 2.0F, 2.0F)
-                .uv(40, 17).cuboid(-4.5F, -9.0F, 10.5F, 9.0F, 9.0F, 3.0F), ModelTransform.pivot(0F, 24F, 2.5F));
+                .uv(40, 17).cuboid(-4.5F, -9.0F, 10.5F, 9.0F, 9.0F, 3.0F), ModelTransform.pivot(0F, 24F, 0.5F));
 
         return TexturedModelData.of(modelData, 64, 64);
     }
