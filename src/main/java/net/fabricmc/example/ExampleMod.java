@@ -10,9 +10,14 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
@@ -54,6 +59,12 @@ public class ExampleMod implements ModInitializer {
 			})
 			.build();
 
+	public static final EntityType<BocchiEntity> BOCCHI = Registry.register(
+			Registry.ENTITY_TYPE,
+			new Identifier("tutorial", "bocchi"),
+			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BocchiEntity::new).dimensions(EntityDimensions.fixed(1.25f, 0.8f)).build()
+	);
+
 
 	@Override
 	public void onInitialize() {
@@ -70,6 +81,8 @@ public class ExampleMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("tutorial", "jukebox_drawer"), JUKEBOX_DRAWER_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("tutorial", "jukebox_drawer"), new BlockItem(JUKEBOX_DRAWER_BLOCK, new Item.Settings()));
+
+		FabricDefaultAttributeRegistry.register(BOCCHI, BocchiEntity.createMobAttributes());
 
 	}
 }
