@@ -1,6 +1,7 @@
-package net.fabricmc.example;
+package net.fabricmc.example.client.gui.screen.ingame;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.fabricmc.example.screen.JukeboxDrawerScreenHandler;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;

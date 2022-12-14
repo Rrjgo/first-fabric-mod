@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+package net.fabricmc.example.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

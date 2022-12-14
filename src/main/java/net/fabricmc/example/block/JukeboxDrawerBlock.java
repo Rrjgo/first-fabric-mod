@@ -1,5 +1,6 @@
-package net.fabricmc.example;
+package net.fabricmc.example.block;
 
+import net.fabricmc.example.block.entity.JukeboxDrawerBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

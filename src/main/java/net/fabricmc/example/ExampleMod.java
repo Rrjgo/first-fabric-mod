@@ -1,6 +1,11 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.block.ExampleBlock;
+import net.fabricmc.example.block.JukeboxDrawerBlock;
+import net.fabricmc.example.block.entity.JukeboxDrawerBlockEntity;
+import net.fabricmc.example.item.FabricItem;
+import net.fabricmc.example.screen.JukeboxDrawerScreenHandler;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

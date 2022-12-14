@@ -1,5 +1,8 @@
-package net.fabricmc.example;
+package net.fabricmc.example.block.entity;
 
+import net.fabricmc.example.ExampleMod;
+import net.fabricmc.example.ImplementedInventory;
+import net.fabricmc.example.screen.JukeboxDrawerScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
