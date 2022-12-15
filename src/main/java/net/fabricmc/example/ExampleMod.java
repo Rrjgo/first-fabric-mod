@@ -49,21 +49,29 @@ public class ExampleMod implements ModInitializer {
 
 
 
-	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
-			new Identifier("tutorial", "fabric"))
-			.icon(() -> new ItemStack(FABRIC_ITEM))
-			.appendItems(stacks -> {
-				stacks.add(new ItemStack(FABRIC_ITEM));
-				stacks.add(new ItemStack(EXAMPLE_BLOCK));
-				stacks.add(new ItemStack(JUKEBOX_DRAWER_BLOCK));
-			})
-			.build();
+
+
+
 
 	public static final EntityType<BocchiEntity> BOCCHI = Registry.register(
 			Registry.ENTITY_TYPE,
 			new Identifier("tutorial", "bocchi"),
 			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BocchiEntity::new).dimensions(EntityDimensions.fixed(1.25f, 0.8f)).build()
 	);
+
+	public static final Item BOCCHI_SPAWN_EGG = new SpawnEggItem(BOCCHI, 15114418, 7584993,new Item.Settings());
+
+
+	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
+					new Identifier("tutorial", "fabric"))
+			.icon(() -> new ItemStack(FABRIC_ITEM))
+			.appendItems(stacks -> {
+				stacks.add(new ItemStack(FABRIC_ITEM));
+				stacks.add(new ItemStack(EXAMPLE_BLOCK));
+				stacks.add(new ItemStack(JUKEBOX_DRAWER_BLOCK));
+				stacks.add(new ItemStack(BOCCHI_SPAWN_EGG));
+			})
+			.build();
 
 
 	@Override
@@ -83,6 +91,7 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("tutorial", "jukebox_drawer"), new BlockItem(JUKEBOX_DRAWER_BLOCK, new Item.Settings()));
 
 		FabricDefaultAttributeRegistry.register(BOCCHI, BocchiEntity.createMobAttributes());
+		Registry.register(Registry.ITEM, new Identifier("tutorial", "bocchi_spawn_egg"), BOCCHI_SPAWN_EGG);
 
 	}
 }
